@@ -706,7 +706,7 @@ static int batadv_check_unicast_ttvn(struct batadv_priv *bat_priv,
 	if (batadv_tt_local_client_is_roaming(bat_priv, ethhdr->h_dest, vid)) {
 		if (batadv_reroute_unicast_packet(bat_priv, unicast_packet,
 						  ethhdr->h_dest, vid))
-			net_ratelimited_function(batadv_dbg, BATADV_DBG_TT,
+			batadv_dbg_ratelimited(BATADV_DBG_TT,
 						 bat_priv,
 						 "Rerouting unicast packet to %pM (dst=%pM): Local Roaming\n",
 						 unicast_packet->dest,
@@ -752,7 +752,7 @@ static int batadv_check_unicast_ttvn(struct batadv_priv *bat_priv,
 	 */
 	if (batadv_reroute_unicast_packet(bat_priv, unicast_packet,
 					  ethhdr->h_dest, vid)) {
-		net_ratelimited_function(batadv_dbg, BATADV_DBG_TT, bat_priv,
+		batadv_dbg_ratelimited(BATADV_DBG_TT, bat_priv,
 					 "Rerouting unicast packet to %pM (dst=%pM): TTVN mismatch old_ttvn=%u new_ttvn=%u\n",
 					 unicast_packet->dest, ethhdr->h_dest,
 					 old_ttvn, curr_ttvn);
