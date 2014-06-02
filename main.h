@@ -248,7 +248,7 @@ __printf(2, 3);
 	}							\
 	while (0)
 #else /* !CONFIG_BATMAN_ADV_DEBUG */
-__printf(3, 4)
+__printf(4, 5)
 static inline void _batadv_dbg(int type __always_unused,
 			      struct batadv_priv *bat_priv __always_unused,
 			      int ratelimited __always_unused,
